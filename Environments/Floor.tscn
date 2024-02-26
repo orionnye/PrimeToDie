@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://cr4ic61d26tm4"]
+
+[ext_resource type="Script" path="res://Environments/scripts/Floor.cs" id="1_1fjdq"]
+[ext_resource type="PackedScene" uid="uid://4pvcu33a00ya" path="res://Environments/cubes/Blank.tscn" id="2_flt02"]
+[ext_resource type="PackedScene" uid="uid://blwde0nlg6u44" path="res://Units/Player/Player.tscn" id="3_15wyr"]
+[ext_resource type="PackedScene" uid="uid://oue3myhxaotw" path="res://Items/Default.tscn" id="4_pddav"]
+[ext_resource type="PackedScene" uid="uid://2lbkvxlnl0g8" path="res://Items/Guns/Bullet.tscn" id="5_ouwpe"]
+[ext_resource type="PackedScene" uid="uid://0qwe0cnmo0ti" path="res://Items/Blocks/Blink.tscn" id="6_pqyti"]
+
+[node name="Floor" type="Node3D"]
+script = ExtResource("1_1fjdq")
+cube = ExtResource("2_flt02")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.64697, 0.428812, 0.630515, -0.716841, 0.623925, 0.311218, -0.25994, -0.653328, 0.711051, 0, 1.51915, 4.99107)
+
+[node name="Player" parent="." instance=ExtResource("3_15wyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.80063, 0)
+
+[node name="Default" parent="." instance=ExtResource("4_pddav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32216, 1.20109, 4.61405)
+
+[node name="Bullet" parent="." instance=ExtResource("5_ouwpe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.499868, 4.34547, 1.89349)
+
+[node name="Blink" parent="." instance=ExtResource("6_pqyti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03128, 1.9142, 0)

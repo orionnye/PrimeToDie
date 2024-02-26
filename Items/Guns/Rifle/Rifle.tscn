@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bphmah7pyavet"]
+
+[ext_resource type="Script" path="res://Items/Guns/Rifle/Rifle.cs" id="1_xnfr1"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xqjsi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_th37x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pmfq8"]
+size = Vector3(0.25, 0.670235, 2.56084)
+
+[node name="Rifle" type="RigidBody3D" groups=["Items"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0715708, 0.752002, 1.36102)
+script = ExtResource("1_xnfr1")
+
+[node name="RifleMesh" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(0.63, 0, 0, 0, 0.63, 0, 0, 0, 0.63, 0, -0.21, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RifleMesh"]
+transform = Transform3D(0.29, 0, 0, 0, -8.33139e-08, -0.29, 0, 1.906, -1.26763e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_xqjsi")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RifleMesh"]
+transform = Transform3D(0.26, 0, 0, 0, 0.32, 0, 0, 0, 1, -4.76837e-07, -0.158878, 0.260573)
+mesh = SubResource("BoxMesh_th37x")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="RifleMesh"]
+transform = Transform3D(0.22, 0, 0, 0, 0.786801, -0.173005, 0, 0.349665, 0.389288, -7.15256e-07, -0.410037, -1.71834)
+mesh = SubResource("BoxMesh_th37x")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.444213, -0.0306931)
+shape = SubResource("BoxShape3D_pmfq8")

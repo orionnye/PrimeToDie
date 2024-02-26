@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyxs1b2niix6v"]
+
+[ext_resource type="Script" path="res://UI/scripts/transition.cs" id="1_oi466"]
+[ext_resource type="PackedScene" uid="uid://cr4ic61d26tm4" path="res://Environments/Floor.tscn" id="2_tjwi6"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -245.0
+offset_top = 56.0
+offset_right = -136.0
+offset_bottom = 87.0
+grow_horizontal = 2
+scale = Vector2(4.67, 4.67)
+text = "Prime To Die"
+fit_content = true
+scroll_active = false
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 479.0
+offset_top = 256.0
+offset_right = 623.0
+offset_bottom = 358.0
+text = "Start"
+script = ExtResource("1_oi466")
+toScene = ExtResource("2_tjwi6")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

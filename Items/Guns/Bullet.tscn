@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://2lbkvxlnl0g8"]
+
+[ext_resource type="Script" path="res://Items/Guns/Bullet.cs" id="1_n8lnu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dfnv2"]
+radius = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_m463b"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rkhel"]
+albedo_color = Color(0.486275, 0, 0.0196078, 1)
+
+[node name="Bullet" type="RigidBody3D"]
+mass = 0.05
+script = ExtResource("1_n8lnu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_dfnv2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_m463b")
+surface_material_override/0 = SubResource("StandardMaterial3D_rkhel")

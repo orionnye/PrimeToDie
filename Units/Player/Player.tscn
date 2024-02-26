@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://blwde0nlg6u44"]
+
+[ext_resource type="Script" path="res://Units/Player/scripts/Controller.cs" id="1_hctff"]
+[ext_resource type="Script" path="res://Units/Player/scripts/PlayerCam.cs" id="2_2g3wl"]
+[ext_resource type="Script" path="res://Units/Player/scripts/Hands.cs" id="2_pbvl0"]
+[ext_resource type="PackedScene" uid="uid://bphmah7pyavet" path="res://Items/Guns/Rifle/Rifle.tscn" id="4_6q2w3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5uw4c"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_slyuf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ult3v"]
+
+[node name="Player" type="RigidBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_hctff")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.359769, 0.933042, 0, -0.933042, 0.359769, 0.522347, 9.76714, 3.22085)
+script = ExtResource("2_2g3wl")
+
+[node name="Control" type="Control" parent="Camera3D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -33.0
+offset_top = -57.0
+offset_right = 117.0
+offset_bottom = 25.0
+scale = Vector2(5, 5)
+
+[node name="hpLabel" type="RichTextLabel" parent="Camera3D/Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 50.0
+offset_bottom = 42.0
+theme_override_colors/default_color = Color(0.541176, 0, 0, 1)
+text = "HP:"
+scroll_active = false
+
+[node name="hpNumber" type="RichTextLabel" parent="Camera3D/Control"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 12.0
+offset_right = 132.0
+offset_bottom = 45.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+text = "100"
+scroll_active = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_5uw4c")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_slyuf")
+
+[node name="HandMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 0.293792, 0.133381, 0.296938)
+mesh = SubResource("BoxMesh_ult3v")
+skeleton = NodePath("../Hands")
+
+[node name="Hands" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.15165)
+script = ExtResource("2_pbvl0")
+
+[node name="Rifle" parent="Hands" instance=ExtResource("4_6q2w3")]
