@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://blwde0nlg6u44"]
+[gd_scene load_steps=7 format=3 uid="uid://blwde0nlg6u44"]
 
 [ext_resource type="Script" path="res://Units/Player/scripts/Controller.cs" id="1_hctff"]
 [ext_resource type="Script" path="res://Units/Player/scripts/PlayerCam.cs" id="2_2g3wl"]
 [ext_resource type="Script" path="res://Units/Player/scripts/Hands.cs" id="2_pbvl0"]
-[ext_resource type="PackedScene" uid="uid://bphmah7pyavet" path="res://Items/Guns/Rifle/Rifle.tscn" id="4_6q2w3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5uw4c"]
 
@@ -64,5 +63,3 @@ skeleton = NodePath("../Hands")
 [node name="Hands" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.15165)
 script = ExtResource("2_pbvl0")
-
-[node name="Rifle" parent="Hands" instance=ExtResource("4_6q2w3")]

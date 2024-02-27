@@ -14,6 +14,7 @@ albedo_color = Color(0.486275, 0, 0.0196078, 1)
 
 [node name="Bullet" type="RigidBody3D"]
 mass = 0.05
+can_sleep = false
 script = ExtResource("1_n8lnu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

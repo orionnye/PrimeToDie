@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://fc2ldelm1f3q"]
+
+[ext_resource type="Texture2D" uid="uid://cwua8colwjbwy" path="res://icon.svg" id="1_gdj3b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlxeq"]
+albedo_texture = ExtResource("1_gdj3b")
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o3ei6"]
+size = Vector2(20, 20)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_d1cwc"]
+points = PackedVector3Array(10.1548, 0.158668, 10.1548, -10.1548, -0.158668, -10.1548, -10.1548, 0.158668, -10.1548, 10.1548, -0.158668, -10.1548, -10.1548, -0.158668, 10.1548, -10.1548, 0.158668, 10.1548, 10.1548, 0.158668, -10.1548, 10.1548, -0.158668, 10.1548)
+
+[node name="Plane" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_qlxeq")
+mesh = SubResource("PlaneMesh_o3ei6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_d1cwc")
