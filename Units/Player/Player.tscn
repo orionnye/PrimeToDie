@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://blwde0nlg6u44"]
+[gd_scene load_steps=8 format=3 uid="uid://blwde0nlg6u44"]
 
 [ext_resource type="Script" path="res://Units/Player/scripts/Controller.cs" id="1_hctff"]
 [ext_resource type="Script" path="res://Units/Player/scripts/PlayerCam.cs" id="2_2g3wl"]
 [ext_resource type="Script" path="res://Units/Player/scripts/Hands.cs" id="2_pbvl0"]
+[ext_resource type="PackedScene" uid="uid://b5amjicuw3r8u" path="res://UI/NodeTracker/NodeTracker.tscn" id="3_rkc0j"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5uw4c"]
 
@@ -10,7 +11,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_ult3v"]
 
-[node name="Player" type="RigidBody3D"]
+[node name="Player" type="RigidBody3D" groups=["Player"]]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
@@ -48,6 +49,17 @@ offset_bottom = 45.0
 theme_override_colors/default_color = Color(1, 0, 0, 1)
 text = "100"
 scroll_active = false
+
+[node name="NodeTracker" parent="Camera3D" instance=ExtResource("3_rkc0j")]
+script = null
+
+[node name="CanvasModulate" type="ColorRect" parent="Camera3D"]
+custom_minimum_size = Vector2(10, 10)
+offset_left = 301.0
+offset_top = 148.0
+offset_right = 374.0
+offset_bottom = 211.0
+color = Color(0, 0, 1, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_5uw4c")

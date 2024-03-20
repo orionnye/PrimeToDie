@@ -6,6 +6,23 @@ public partial class PlayerCam : Camera3D
 	Node3D target;
 	Vector3 fixedPerspective;
 
+	public NodeTracker UIMarker;
+
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready() {
+		// GD.Print("Boogus");
+		fixedPerspective = Position;
+		target = (Node3D)GetParent();
+		// UIMarker = GetNode<NodeTracker>("NodeTracker");
+	}
+	public void TextOnNode(Node3D target) {
+		UIMarker.target = target;
+		UIMarker.Visible = true;
+	}
+	public void disableText() {
+		UIMarker.target = null;
+		UIMarker.Visible = false;
+	}
 	public Vector2 GetMousePosInViewport() {
 		// Gets the mouse position on screen
 		Vector2 mouseInViewport = GetViewport().GetMousePosition();
@@ -25,12 +42,6 @@ public partial class PlayerCam : Camera3D
 	public void updateNode(Vector2 pos, RichTextLabel label, String text) {;
 		label.Position = pos;
 		label.Text = text;
-	}
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready() {
-		// GD.Print("Boogus");
-		fixedPerspective = this.Position;
-		target = (Node3D)GetParent();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -5,6 +5,7 @@ public partial class Controller : RigidBody3D
 {
 	PlayerCam cam;
 	Vector3 startRot;
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
 		cam = GetNode<PlayerCam>("Camera3D");

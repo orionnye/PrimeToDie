@@ -8,11 +8,14 @@ public partial class Flashlight : Item
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		base._Ready();
 		Deactivate();
-		
+
+		// Functional
 		heldPosition = new Vector3(0.7f, 0.3f, -1);
 		heldRotation = Vector3.Zero;
 
+		// UI
 		activeMaterial = new StandardMaterial3D{ AlbedoColor = new Color(1f, 0f, 0f) };
 		inactiveMaterial = new StandardMaterial3D{ AlbedoColor = new Color(1f, 1f, 1f) };
 	}
@@ -30,9 +33,9 @@ public partial class Flashlight : Item
 		GetNode<SpotLight3D>("Body/SpotLight3D").LightEnergy = 0;
 		// GetNode("MeshInstance3D").Set("surface_material_override/0", inactiveMaterial);
 	}
-
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+
 	}
 }

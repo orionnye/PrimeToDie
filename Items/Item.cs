@@ -10,6 +10,9 @@ public partial class Item : Node3D
 	double timer = 0;
 	double cooldown = 0.5;
 
+	// UI
+	// [Export] public NodeTracker UIMarker;
+
 	public StandardMaterial3D activeMaterial = new StandardMaterial3D{
 		AlbedoColor = new Color(1f, 0f, 0f)
 	};
@@ -18,6 +21,7 @@ public partial class Item : Node3D
 	};
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
+		
 	}
 	
 	// Base Activate function

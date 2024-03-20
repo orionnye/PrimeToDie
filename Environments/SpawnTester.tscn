@@ -1,0 +1,200 @@
+[gd_scene load_steps=9 format=3 uid="uid://duy0wi2r37qvy"]
+
+[ext_resource type="PackedScene" uid="uid://fc2ldelm1f3q" path="res://Environments/Terrain/Primaries/Plane/Plane.tscn" id="1_3gte8"]
+[ext_resource type="PackedScene" uid="uid://xib7at7v04dv" path="res://Environments/Terrain/Primaries/Cube/Cube.tscn" id="2_dd371"]
+[ext_resource type="PackedScene" uid="uid://blwde0nlg6u44" path="res://Units/Player/Player.tscn" id="3_sf6ln"]
+[ext_resource type="PackedScene" uid="uid://0qwe0cnmo0ti" path="res://Items/Blocks/Blink.tscn" id="4_tb0qh"]
+[ext_resource type="PackedScene" uid="uid://bphmah7pyavet" path="res://Items/Guns/Rifle/Rifle.tscn" id="5_tuyas"]
+[ext_resource type="PackedScene" uid="uid://dqof6or4kfc0e" path="res://Items/Utility/Flashlight/Flashlight.tscn" id="6_yxvma"]
+[ext_resource type="PackedScene" uid="uid://c3hhqc8ymrykp" path="res://Stations/Spawner/Spawner.tscn" id="7_cr5ox"]
+[ext_resource type="PackedScene" uid="uid://dvwud5desyhac" path="res://Units/Enemies/Block/BlockEnemy.tscn" id="8_gy14l"]
+
+[node name="SpawnTester" type="Node3D"]
+
+[node name="CenterPlane" parent="." instance=ExtResource("1_3gte8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="-XPlane" parent="." instance=ExtResource("1_3gte8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -1, 0)
+
+[node name="+Z-XPlane" parent="." instance=ExtResource("1_3gte8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -1, 20)
+
+[node name="+ZPlane" parent="." instance=ExtResource("1_3gte8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 20)
+
+[node name="+Z+XPlane" parent="." instance=ExtResource("1_3gte8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -1, 20)
+
+[node name="+XPlane" parent="." instance=ExtResource("1_3gte8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -1, 0)
+
+[node name="-Z+XPlane" parent="." instance=ExtResource("1_3gte8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -1, -20)
+
+[node name="-ZPlane" parent="." instance=ExtResource("1_3gte8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -20)
+
+[node name="-Z-XPlane" parent="." instance=ExtResource("1_3gte8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -1, -20)
+
+[node name="Ramp" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, -20, 0, -24)
+
+[node name="Ramp3" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, -13, 0, -25)
+
+[node name="Ramp4" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 6.83218e-08, -2.37337, 8.85754, 4.76837e-07, 2.38419e-07, -4.76837e-07, 9.17, -5, 0, -27)
+
+[node name="Ramp5" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(9.0877, 0.307136, 1.18668, 0.307137, 8.02375, -4.42877, -1.18668, 4.42877, 7.94145, 3, 0, -31)
+
+[node name="Ramp6" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 6.83218e-08, -2.2925, 8.55573, 2.37337, 0.614274, -2.2925, 8.85754, 3, 0, -21)
+
+[node name="Ramp24" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(-8.74228e-07, 0, 20, 0, 20, 0, -20, 0, -8.74228e-07, 28, -2, -20)
+
+[node name="Ramp25" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(-8.74228e-07, 0, 20, 0, 20, 0, -20, 0, -8.74228e-07, 14, -3, -37)
+
+[node name="Ramp7" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 6.83218e-08, 0, -9.53674e-07, -9.17, -2.37337, 8.85754, 2.38419e-07, 18, 0, -8)
+
+[node name="Ramp8" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, 23, 0, -8)
+
+[node name="Ramp9" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, 27, 0, -6)
+
+[node name="Ramp10" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, 27, 0, 4)
+
+[node name="Ramp11" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, 26, 0, 13)
+
+[node name="Ramp12" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, 24, 0, 22)
+
+[node name="Ramp13" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, 16, 0, 24)
+
+[node name="Ramp14" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, 2, 0, 24)
+
+[node name="Ramp22" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, 8, 0, 25)
+
+[node name="Ramp15" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, -5, 0, 26)
+
+[node name="Ramp16" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, -12, 0, 22)
+
+[node name="Ramp17" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, -16, 0, 15)
+
+[node name="Ramp18" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, -23, 0, 10)
+
+[node name="Ramp19" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, -26, 0, 1)
+
+[node name="Ramp20" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, -24, 0, -16)
+
+[node name="Ramp21" parent="." instance=ExtResource("2_dd371")]
+transform = Transform3D(8.85754, 2.37337, 0, -2.0554, 7.67085, -4.585, -1.18669, 4.42877, 7.94145, -26, 0, -8)
+
+[node name="Player" parent="." instance=ExtResource("3_sf6ln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Blink" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 5, -5)
+
+[node name="Blink2" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 4, -13)
+
+[node name="Blink3" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 3, 16)
+
+[node name="Blink5" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 8)
+
+[node name="Blink6" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, -7)
+
+[node name="Blink7" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 3, -23)
+
+[node name="Blink8" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 3, -24)
+
+[node name="Blink9" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3, -16)
+
+[node name="Blink10" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3, -20)
+
+[node name="Blink11" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 3, -19)
+
+[node name="Blink12" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 3, -12)
+
+[node name="Blink13" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 3, -13)
+
+[node name="Blink14" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 3, -19)
+
+[node name="Blink15" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 3, -22)
+
+[node name="Blink16" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3, -26)
+
+[node name="Blink17" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 3, -26)
+
+[node name="Blink18" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 3, -15)
+
+[node name="Blink19" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, -19)
+
+[node name="Blink20" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 3, -15)
+
+[node name="Blink21" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 3, 2)
+
+[node name="Blink22" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 3, 12)
+
+[node name="Blink23" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3, 16)
+
+[node name="Blink24" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 3, 18)
+
+[node name="Blink25" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 1)
+
+[node name="Blink4" parent="." instance=ExtResource("4_tb0qh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 4, -3)
+
+[node name="Rifle" parent="." instance=ExtResource("5_tuyas")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -7)
+
+[node name="Flashlight" parent="." instance=ExtResource("6_yxvma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -8)
+
+[node name="Flashlight2" parent="." instance=ExtResource("6_yxvma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 12)
+
+[node name="Spawner" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_cr5ox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -1, 8)
+spawnItem = ExtResource("8_gy14l")
+target = NodePath("../Player")

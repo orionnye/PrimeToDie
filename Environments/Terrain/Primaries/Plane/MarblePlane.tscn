@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dy3sqk4kticsd"]
+[gd_scene load_steps=13 format=3 uid="uid://dy3sqk4kticsd"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hhltw"]
 
@@ -22,10 +22,23 @@ noise = SubResource("FastNoiseLite_lrh1a")
 color_ramp = SubResource("Gradient_io0w2")
 noise = SubResource("FastNoiseLite_67lyo")
 
+[sub_resource type="Gradient" id="Gradient_np4sc"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_b6prf"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_01nsd"]
+color_ramp = SubResource("Gradient_np4sc")
+noise = SubResource("FastNoiseLite_b6prf")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yw475"]
 albedo_texture = SubResource("NoiseTexture2D_3s53s")
 clearcoat_enabled = true
+clearcoat = 0.1
+clearcoat_roughness = 0.86
 clearcoat_texture = SubResource("NoiseTexture2D_6u35l")
+heightmap_enabled = true
+heightmap_scale = 6.079
+heightmap_texture = SubResource("NoiseTexture2D_01nsd")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_n7ym2"]
 points = PackedVector3Array(1.01587, 0.015873, 1.01587, -1.01587, -0.015873, -1.01587, -1.01587, 0.015873, -1.01587, 1.01587, -0.015873, -1.01587, -1.01587, -0.015873, 1.01587, -1.01587, 0.015873, 1.01587, 1.01587, 0.015873, -1.01587, 1.01587, -0.015873, 1.01587)
