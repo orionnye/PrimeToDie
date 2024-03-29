@@ -10,7 +10,7 @@ public partial class Hands : Node3D
 		// starting values
 
 		// reference values
-		cam = GetParent().GetNode<PlayerCam>("Camera3D");
+		cam = GetParent<Controller>().cam;
 
 		// starting mutations
 		foreach (var item in GetChildren()) {

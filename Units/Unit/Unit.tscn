@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4qj88wrp54s0"]
+
+[ext_resource type="Script" path="res://Units/Unit/Unit.cs" id="1_ci6me"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_el2sd"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_affxi"]
+
+[node name="Unit" type="RigidBody3D"]
+script = ExtResource("1_ci6me")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_el2sd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_affxi")

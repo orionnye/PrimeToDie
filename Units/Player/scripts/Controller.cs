@@ -3,9 +3,9 @@ using System;
 
 public partial class Controller : RigidBody3D
 {
-	PlayerCam cam;
+	[Export] public PlayerCam cam;
 	Vector3 startRot;
-	
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
 		cam = GetNode<PlayerCam>("Camera3D");
@@ -51,8 +51,6 @@ public partial class Controller : RigidBody3D
 		// return the comparison
 		return mouseRelative;
 	}
-
-
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {

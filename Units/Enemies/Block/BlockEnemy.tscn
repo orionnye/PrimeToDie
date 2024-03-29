@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvwud5desyhac"]
+[gd_scene load_steps=6 format=3 uid="uid://dvwud5desyhac"]
 
 [ext_resource type="Script" path="res://Units/Enemies/Block/BlockEnemy.cs" id="1_68sg4"]
+[ext_resource type="ArrayMesh" uid="uid://cm7dll76gaglo" path="res://Units/Enemies/Block/Blogart.obj" id="2_mq6ti"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_h1jvb"]
+[sub_resource type="SphereMesh" id="SphereMesh_ve386"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uqgaj"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 0, 1)
+metallic_specular = 0.0
+clearcoat_enabled = true
+clearcoat_roughness = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tj0ay"]
 
@@ -12,9 +22,21 @@ max_contacts_reported = 8
 contact_monitor = true
 script = ExtResource("1_68sg4")
 speed = 0.2
+hp = 1.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_h1jvb")
+[node name="Body" type="Node3D" parent="."]
+
+[node name="BlogartBody" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(0.54, 0, 0, 0, 0.54, 0, 0, 0, 0.54, 0, 0, 0)
+mesh = ExtResource("2_mq6ti")
+skeleton = NodePath("../..")
+
+[node name="RightEye" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0.217567, 0.209704, -0.562399)
+mesh = SubResource("SphereMesh_ve386")
+surface_material_override/0 = SubResource("StandardMaterial3D_uqgaj")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Body/RightEye"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_tj0ay")

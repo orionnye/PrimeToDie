@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvsgq2l3s78ja"]
+
+[ext_resource type="Script" path="res://UI/Cameras/scripts/Follow.cs" id="1_0b8iy"]
+[ext_resource type="Script" path="res://UI/Cameras/scripts/TopDownCam.cs" id="1_m7kgl"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0iqvf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yj410"]
+
+[node name="TopDownCam" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_0b8iy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_0iqvf")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)
+mass = 0.01
+gravity_scale = 0.0
+script = ExtResource("1_m7kgl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_yj410")
+
+[node name="Camera3D" type="Camera3D" parent="RigidBody3D"]
+fov = 37.8493

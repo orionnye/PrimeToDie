@@ -3,10 +3,10 @@ using System;
 
 public partial class PlayerCam : Camera3D
 {
-	Node3D target;
+	[Export] Node3D target;
 	Vector3 fixedPerspective;
 
-	public NodeTracker UIMarker;
+	[Export] public NodeTracker UIMarker;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {

@@ -1,13 +1,15 @@
 [gd_scene load_steps=8 format=3 uid="uid://blwde0nlg6u44"]
 
 [ext_resource type="Script" path="res://Units/Player/scripts/Controller.cs" id="1_hctff"]
-[ext_resource type="Script" path="res://Units/Player/scripts/PlayerCam.cs" id="2_2g3wl"]
 [ext_resource type="Script" path="res://Units/Player/scripts/Hands.cs" id="2_pbvl0"]
-[ext_resource type="PackedScene" uid="uid://b5amjicuw3r8u" path="res://UI/NodeTracker/NodeTracker.tscn" id="3_rkc0j"]
+[ext_resource type="Script" path="res://Units/Player/scripts/PlayerCam.cs" id="3_844nk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5uw4c"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_slyuf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vd0wh"]
+albedo_color = Color(0.564706, 0.105882, 0.0156863, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ult3v"]
 
@@ -17,55 +19,12 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_hctff")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.359769, 0.933042, 0, -0.933042, 0.359769, 0.522347, 9.76714, 3.22085)
-script = ExtResource("2_2g3wl")
-
-[node name="Control" type="Control" parent="Camera3D"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -33.0
-offset_top = -57.0
-offset_right = 117.0
-offset_bottom = 25.0
-scale = Vector2(5, 5)
-
-[node name="hpLabel" type="RichTextLabel" parent="Camera3D/Control"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 11.0
-offset_right = 50.0
-offset_bottom = 42.0
-theme_override_colors/default_color = Color(0.541176, 0, 0, 1)
-text = "HP:"
-scroll_active = false
-
-[node name="hpNumber" type="RichTextLabel" parent="Camera3D/Control"]
-layout_mode = 0
-offset_left = 41.0
-offset_top = 12.0
-offset_right = 132.0
-offset_bottom = 45.0
-theme_override_colors/default_color = Color(1, 0, 0, 1)
-text = "100"
-scroll_active = false
-
-[node name="NodeTracker" parent="Camera3D" instance=ExtResource("3_rkc0j")]
-script = null
-
-[node name="CanvasModulate" type="ColorRect" parent="Camera3D"]
-custom_minimum_size = Vector2(10, 10)
-offset_left = 301.0
-offset_top = 148.0
-offset_right = 374.0
-offset_bottom = 211.0
-color = Color(0, 0, 1, 1)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_5uw4c")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_slyuf")
+surface_material_override/0 = SubResource("StandardMaterial3D_vd0wh")
 
 [node name="HandMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, 0.293792, 0.133381, 0.296938)
@@ -75,3 +34,7 @@ skeleton = NodePath("../Hands")
 [node name="Hands" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.15165)
 script = ExtResource("2_pbvl0")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.307307, 0.951611, 0, -0.951611, 0.307307, 0, 11.161, 4.022)
+script = ExtResource("3_844nk")

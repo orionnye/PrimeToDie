@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cm7dll76gaglo"
+path="res://.godot/imported/Blogart.obj-b406498b6f3db35b43e6bf23f8e86181.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Blogart.obj-b406498b6f3db35b43e6bf23f8e86181.mesh"]
+
+source_file="res://Units/Enemies/Block/Blogart.obj"
+dest_files=["res://.godot/imported/Blogart.obj-b406498b6f3db35b43e6bf23f8e86181.mesh", "res://.godot/imported/Blogart.obj-b406498b6f3db35b43e6bf23f8e86181.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
