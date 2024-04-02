@@ -7,11 +7,29 @@ public partial class TopDownCam : RigidBody3D
 	Vector3 desiredRotation = new Vector3(90, 0, 0);
 	public float speed = 0.001f;
 
+	[Export] public MeshInstance3D mouseMarker = GD.Load<MeshInstance3D>("MouseMarker");
+	[Export] public ColorRect mouseTag;
+	public bool isTrackingMouse = false;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
 		desiredOffset = Position;
 	}
 
+	// Utility functions
+
+	//                 |
+	// Mouse tracking \|/
+	//                 V
+	public Vector2 GetMousePosInViewport() {
+		// Gets the mouse position on screen
+		Vector2 mouseInViewport = GetViewport().GetMousePosition();
+		return mouseInViewport;
+	}
+
+	//                 |
+	//      Motion    \|/
+	//                 V
 	public Vector3 track() {
 		Node3D parent = (Node3D)GetParent();
 		Vector3 direction = (parent.GlobalPosition + desiredOffset - GlobalPosition).Normalized();
@@ -23,17 +41,6 @@ public partial class TopDownCam : RigidBody3D
 	public override void _Process(double delta) {
 		Node3D parent = (Node3D)GetParent();
 		GlobalPosition = GlobalPosition.Lerp(parent.GlobalPosition + desiredOffset, 0.01f);
-	}
-	public override void _IntegrateForces(PhysicsDirectBodyState3D state)
-	{
-		// base._IntegrateForces(state);
-		// Vector3 motionInput = track();
-		// // dampen motion during in-action
-		// if (motionInput.Length() == 0) {
-		// 	LinearDamp = 0.59F;
-		// 	Inertia = Inertia.Lerp(Vector3.Zero, LinearDamp); //This is the impact of friction improperly implented
-		// 	LinearVelocity = Vector3.Zero;
-		// }
-		// ApplyCentralImpulse(motionInput);
+		mouseMarker.GlobalPosition = new Vector3(3, 2, 3);
 	}
 }

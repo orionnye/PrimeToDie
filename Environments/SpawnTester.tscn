@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://duy0wi2r37qvy"]
+[gd_scene load_steps=9 format=3 uid="uid://duy0wi2r37qvy"]
 
 [ext_resource type="PackedScene" uid="uid://fc2ldelm1f3q" path="res://Environments/Terrain/Primaries/Plane/Plane.tscn" id="1_3gte8"]
 [ext_resource type="PackedScene" uid="uid://xib7at7v04dv" path="res://Environments/Terrain/Primaries/Cube/Cube.tscn" id="2_dd371"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dqof6or4kfc0e" path="res://Items/Utility/Flashlight/Flashlight.tscn" id="6_yxvma"]
 [ext_resource type="PackedScene" uid="uid://bvsgq2l3s78ja" path="res://UI/Cameras/TopDownCam.tscn" id="7_hym65"]
 [ext_resource type="PackedScene" uid="uid://c4qj88wrp54s0" path="res://Units/Unit/Unit.tscn" id="7_peg4w"]
+[ext_resource type="PackedScene" uid="uid://0kkavmvglxqp" path="res://Units/Unit/User/User.tscn" id="8_gnwem"]
 
 [node name="SpawnTester" type="Node3D"]
 
@@ -196,54 +197,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -8)
 [node name="Flashlight2" parent="Items" instance=ExtResource("6_yxvma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 12)
 
-[node name="TopDownCam" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_hym65")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 3)
-target = NodePath("../Unit")
+[node name="Actors" type="Node3D" parent="."]
 
-[node name="Unit" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_peg4w")]
+[node name="Unit" parent="Actors" node_paths=PackedStringArray("target") instance=ExtResource("7_peg4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 3)
 mass = 0.01
-target = NodePath("../Items/Blink")
+target = NodePath("../../User")
 speed = 0.01
 
-[node name="Unit2" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_peg4w")]
+[node name="Unit2" parent="Actors" node_paths=PackedStringArray("target") instance=ExtResource("7_peg4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 3)
 mass = 0.01
-target = NodePath("../Items/Blink")
+target = NodePath("../../User")
 speed = 0.01
 
-[node name="Unit3" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_peg4w")]
+[node name="Unit3" parent="Actors" node_paths=PackedStringArray("target") instance=ExtResource("7_peg4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 3)
 mass = 0.01
-target = NodePath("../Items/Blink")
+target = NodePath("../../User")
 speed = 0.01
 
-[node name="Unit4" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_peg4w")]
+[node name="Unit4" parent="Actors" node_paths=PackedStringArray("target") instance=ExtResource("7_peg4w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 3)
 mass = 0.01
-target = NodePath("../Items/Blink")
+target = NodePath("../../User")
 speed = 0.01
 
-[node name="Unit5" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_peg4w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 5)
-mass = 0.01
-target = NodePath("../Items/Blink")
-speed = 0.01
+[node name="TopDownCam" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_hym65")]
+target = NodePath("../User")
 
-[node name="Unit6" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_peg4w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 5)
-mass = 0.01
-target = NodePath("../Items/Blink")
-speed = 0.01
-
-[node name="Unit7" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_peg4w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 5)
-mass = 0.01
-target = NodePath("../Items/Blink")
-speed = 0.01
-
-[node name="Unit8" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_peg4w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 5)
-mass = 0.01
-target = NodePath("../Items/Blink")
-speed = 0.01
+[node name="User" parent="." instance=ExtResource("8_gnwem")]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvsgq2l3s78ja"]
+[gd_scene load_steps=6 format=3 uid="uid://bvsgq2l3s78ja"]
 
 [ext_resource type="Script" path="res://UI/Cameras/scripts/Follow.cs" id="1_0b8iy"]
 [ext_resource type="Script" path="res://UI/Cameras/scripts/TopDownCam.cs" id="1_m7kgl"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_f4t6q"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_0iqvf"]
 
@@ -11,17 +13,27 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_0b8iy")
 
+[node name="MouseMarker" type="MeshInstance3D" parent="."]
+mesh = SubResource("PrismMesh_f4t6q")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CylinderMesh_0iqvf")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="RigidBody3D" type="RigidBody3D" parent="." node_paths=PackedStringArray("mouseMarker")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)
 mass = 0.01
 gravity_scale = 0.0
 script = ExtResource("1_m7kgl")
+mouseMarker = NodePath("../MouseMarker")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("SphereShape3D_yj410")
 
 [node name="Camera3D" type="Camera3D" parent="RigidBody3D"]
 fov = 37.8493
+
+[node name="ColorRect" type="ColorRect" parent="RigidBody3D/Camera3D"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)

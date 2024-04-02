@@ -16,7 +16,9 @@ public partial class Unit : RigidBody3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
 	}
-	// Getter and Setter method for private
+
+	// Define Grab, and Drop Functions.
+	// Getter and Setter method for private properties
 	public void modifyHealthPoints(int impact) {
 		// this method serves as a access point for Unit stats and could potentially have checks and overrides depending on item features
 		this.hp -= impact;
@@ -36,11 +38,11 @@ public partial class Unit : RigidBody3D
 	public void die() {
 		// drops materials before death
 		// trigger potential on death effects
-		this.QueueFree();
+		QueueFree();
 	}
 
 	// Speed and Motion Controls
-	public Vector3 GetMotion() {
+	private Vector3 GetMotion() {
 		Vector3 motion = new Vector3(0, 0, 0);
 		// Motion should take into account rotation, for now we'll leave that to inertia
 		if ( target != null ) {
