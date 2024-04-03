@@ -1,8 +1,7 @@
 using Godot;
 using System;
 
-public partial class PlayerCam : Camera3D
-{
+public partial class PlayerCam : Camera3D {
 	[Export] Node3D target;
 	Vector3 fixedPerspective;
 

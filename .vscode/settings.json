@@ -1,0 +1,11 @@
+{
+	"godotTools.editorPath.godot4": "/Applications/Godot_mono.app",
+	"[csharp]": {
+		"editor.defaultFormatter": "Michael Tokarev.c-sharp-clang-format"
+	},
+	"csharp.format.enable": false,
+	"editor.defaultFormatter": "xaver.clang-format",
+	"razor.format.enable": false,
+	"omnisharp.useEditorFormattingSettings": false,
+	"dotnet.quickInfo.showRemarksInQuickInfo": false
+}
