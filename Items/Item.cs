@@ -4,8 +4,8 @@ using System;
 public partial class Item : Node3D
 {
 	// Storage and Translation
-	public Vector3 heldPosition = new Vector3(0, 0, 0);
-	public Vector3 heldRotation = Vector3.Zero;
+	[Export] public Vector3 heldPosition = new Vector3(0, 0, 0);
+	[Export] public Vector3 heldRotation = Vector3.Zero;
 	public Boolean active = false;
 	double timer = 0;
 	double cooldown = 0.5;

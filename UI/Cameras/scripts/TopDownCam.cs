@@ -7,8 +7,9 @@ public partial class TopDownCam : RigidBody3D
 	Vector3 desiredRotation = new Vector3(90, 0, 0);
 	public float speed = 0.001f;
 
-	[Export] public MeshInstance3D mouseMarker = GD.Load<MeshInstance3D>("MouseMarker");
+	[Export] public MeshInstance3D mouseMarker;
 	[Export] public ColorRect mouseTag;
+	[Export] public Camera3D cam;
 	public bool isTrackingMouse = false;
 
 	// Called when the node enters the scene tree for the first time.
@@ -26,6 +27,9 @@ public partial class TopDownCam : RigidBody3D
 		Vector2 mouseInViewport = GetViewport().GetMousePosition();
 		return mouseInViewport;
 	}
+	public Vector3 GetMousePosInScene() {
+		return cam.ProjectPosition(GetMousePosInViewport(), desiredOffset.Y);
+	}
 
 	//                 |
 	//      Motion    \|/
@@ -41,6 +45,9 @@ public partial class TopDownCam : RigidBody3D
 	public override void _Process(double delta) {
 		Node3D parent = (Node3D)GetParent();
 		GlobalPosition = GlobalPosition.Lerp(parent.GlobalPosition + desiredOffset, 0.01f);
-		mouseMarker.GlobalPosition = new Vector3(3, 2, 3);
+		Vector3 mousePos = GetMousePosInScene();
+		mousePos.Y = 1;
+		mouseMarker.GlobalPosition = mousePos;
+		mouseTag.Position = GetMousePosInViewport();
 	}
 }

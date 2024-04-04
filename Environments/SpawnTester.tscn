@@ -205,24 +205,6 @@ mass = 0.01
 target = NodePath("../../User")
 speed = 0.01
 
-[node name="Unit2" parent="Actors" node_paths=PackedStringArray("target") instance=ExtResource("7_peg4w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 3)
-mass = 0.01
-target = NodePath("../../User")
-speed = 0.01
-
-[node name="Unit3" parent="Actors" node_paths=PackedStringArray("target") instance=ExtResource("7_peg4w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 3)
-mass = 0.01
-target = NodePath("../../User")
-speed = 0.01
-
-[node name="Unit4" parent="Actors" node_paths=PackedStringArray("target") instance=ExtResource("7_peg4w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 3)
-mass = 0.01
-target = NodePath("../../User")
-speed = 0.01
-
 [node name="TopDownCam" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_hym65")]
 target = NodePath("../User")
 

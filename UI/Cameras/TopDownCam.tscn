@@ -20,14 +20,17 @@ mesh = SubResource("PrismMesh_f4t6q")
 visible = false
 mesh = SubResource("CylinderMesh_0iqvf")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." node_paths=PackedStringArray("mouseMarker")]
+[node name="RigidBody3D" type="RigidBody3D" parent="." node_paths=PackedStringArray("mouseMarker", "mouseTag", "cam")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)
 mass = 0.01
 gravity_scale = 0.0
 script = ExtResource("1_m7kgl")
 mouseMarker = NodePath("../MouseMarker")
+mouseTag = NodePath("Camera3D/ColorRect")
+cam = NodePath("Camera3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+visible = false
 shape = SubResource("SphereShape3D_yj410")
 
 [node name="Camera3D" type="Camera3D" parent="RigidBody3D"]

@@ -7,7 +7,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_av61c"]
 
 [node name="Blink" type="RigidBody3D" groups=["Items"]]
+max_contacts_reported = 5
 script = ExtResource("1_i8r3m")
+heldPosition = Vector3(-0.244098, 0.106743, 0.568783)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_p3oef")

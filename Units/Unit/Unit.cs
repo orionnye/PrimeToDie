@@ -8,6 +8,13 @@ public partial class Unit : RigidBody3D
 	[Export] private int hp = 10; // Health Points storage
 	[Export] private int mp = 10; // Max Health Points storage
 
+	// Item storage and handling
+	[Export] public Node3D hands;
+	[Export] private int holdLimit = 1;
+	[Export] private float handReach = 1f;
+	public bool isHolding() {return hands.GetChildCount() > 0;}
+	public bool isHandsFull() {return hands.GetChildCount() >= holdLimit;}
+
 	// use this to define target direction and derive motion
 	[Export] Node3D target;
 	[Export] private float speed = 0.5f;
@@ -17,7 +24,43 @@ public partial class Unit : RigidBody3D
 	public override void _Ready() {
 	}
 
+	// Event Listeners
+	public void _on_hand_collider_body_entered(Node3D body) {
+		// GD.Print("Something collided for sure");
+		// GD.Print("type:", body.GetType());
+		if (body.IsInGroup("Items")) {
+			GD.Print("We could grab this item!!!");
+			Grab((Item)body);
+		}
+	}
+	public void _on_timer_timeout() {
+
+	}
+
 	// Define Grab, and Drop Functions.
+	public Item isItemInReach() {
+		// Find root children matching "Item" category
+		return null;
+	}
+	public void Grab(Item item) {
+		// Grab Item function, assigns item to the hand and removes it from root
+		if (isHolding()) {
+			Drop();
+		}
+		item.Reparent(hands, true);
+		item.Position = item.heldPosition;
+		item.Rotation = item.heldRotation;
+		item.Set("freeze", true);
+	}
+	public void Drop() {
+		// Drops Item function, assigns item to the root and removes it from hands
+		if (isHolding()) {
+			Node3D item = hands.GetChild<Item>(0);
+			item.Set("freeze", false);
+			item.Reparent(GetTree().Root, true);
+		}
+	}
+
 	// Getter and Setter method for private properties
 	public void modifyHealthPoints(int impact) {
 		// this method serves as a access point for Unit stats and could potentially have checks and overrides depending on item features
@@ -40,6 +83,7 @@ public partial class Unit : RigidBody3D
 		// trigger potential on death effects
 		QueueFree();
 	}
+	
 
 	// Speed and Motion Controls
 	private Vector3 GetMotion() {

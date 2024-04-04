@@ -6,13 +6,13 @@ public partial class Blink : Item
 	// Storage and Translation
 	double timer = 0;
 	double cooldown = 0.5;
+	[Export] public float inertMass = 1f;
+	[Export] public float activeMass = 10f;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
 		active = false;
-		
-		heldPosition = new Vector3(0, 0, 0);
-		heldRotation = Vector3.Zero;
+		Set("mass", inertMass);
 
 		activeMaterial = new StandardMaterial3D{ AlbedoColor = new Color(1f, 0f, 0f) };
 		inactiveMaterial = new StandardMaterial3D{ AlbedoColor = new Color(1f, 1f, 1f) };
@@ -22,12 +22,14 @@ public partial class Blink : Item
 	public override void Activate() {
 		// GD.Print("Activating: ", this);
 		active = true;
+		Set("mass", activeMass);
 		GetNode("MeshInstance3D").Set("surface_material_override/0", activeMaterial);
 	}
 	// Base Inactive function
 	public override void Deactivate() {
 		// GD.Print("Deactivating: ", this);
 		active = false;
+		Set("mass", inertMass);
 		GetNode("MeshInstance3D").Set("surface_material_override/0", inactiveMaterial);
 	}
 
