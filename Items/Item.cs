@@ -1,8 +1,7 @@
 using Godot;
 using System;
 
-public partial class Item : Node3D
-{
+public partial class Item : Node3D {
 	// Storage and Translation
 	public Vector3 heldPosition = new Vector3(0, 0, 0);
 	public Vector3 heldRotation = Vector3.Zero;
@@ -13,17 +12,17 @@ public partial class Item : Node3D
 	// UI
 	// [Export] public NodeTracker UIMarker;
 
-	public StandardMaterial3D activeMaterial = new StandardMaterial3D{
+	public StandardMaterial3D activeMaterial = new StandardMaterial3D {
 		AlbedoColor = new Color(1f, 0f, 0f)
 	};
-	public StandardMaterial3D inactiveMaterial = new StandardMaterial3D{
+	public StandardMaterial3D inactiveMaterial = new StandardMaterial3D {
 		AlbedoColor = new Color(1f, 1f, 1f)
 	};
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
-		
+
 	}
-	
+
 	// Base Activate function
 	public virtual void Activate() {
 		// GD.Print("Activating: ", this);
@@ -39,8 +38,7 @@ public partial class Item : Node3D
 
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+	public override void _Process(double delta) {
 		// if (active) {
 			// timer += delta;
 			// if (timer >= cooldown) {

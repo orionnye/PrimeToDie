@@ -1,8 +1,7 @@
 using Godot;
 using System;
 
-public partial class Blink : Item
-{
+public partial class Blink : Item {
 	// Storage and Translation
 	double timer = 0;
 	double cooldown = 0.5;
@@ -10,14 +9,14 @@ public partial class Blink : Item
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
 		active = false;
-		
+
 		heldPosition = new Vector3(0, 0, 0);
 		heldRotation = Vector3.Zero;
 
 		activeMaterial = new StandardMaterial3D{ AlbedoColor = new Color(1f, 0f, 0f) };
 		inactiveMaterial = new StandardMaterial3D{ AlbedoColor = new Color(1f, 1f, 1f) };
 	}
-	
+
 	// Base Activate function
 	public override void Activate() {
 		// GD.Print("Activating: ", this);
@@ -33,8 +32,7 @@ public partial class Blink : Item
 
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+	public override void _Process(double delta)	{
 		// if (active) {
 			// timer += delta;
 			// if (timer >= cooldown) {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cr4ic61d26tm4"]
+[gd_scene load_steps=12 format=3 uid="uid://cr4ic61d26tm4"]
 
 [ext_resource type="PackedScene" uid="uid://dvwud5desyhac" path="res://Units/Enemies/Block/BlockEnemy.tscn" id="1_hs3x5"]
 [ext_resource type="PackedScene" uid="uid://blwde0nlg6u44" path="res://Units/Player/Player.tscn" id="3_15wyr"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dqof6or4kfc0e" path="res://Items/Utility/Flashlight/Flashlight.tscn" id="8_eeerj"]
 [ext_resource type="PackedScene" uid="uid://c3hhqc8ymrykp" path="res://Stations/Spawner/Spawner.tscn" id="8_sw8ev"]
 [ext_resource type="PackedScene" uid="uid://dy3sqk4kticsd" path="res://Environments/Terrain/Primaries/Plane/MarblePlane.tscn" id="9_q30ow"]
+[ext_resource type="PackedScene" uid="uid://bbtvff7lil3cu" path="res://Items/Blocks/BulletTime.tscn" id="11_1s25f"]
 
 [node name="Floor" type="Node3D"]
 
@@ -57,3 +58,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73695, -0.204774, -5.22795
 
 [node name="Marble" parent="." instance=ExtResource("9_q30ow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.93216, 0.158668, 5.64048)
+
+[node name="BulletTime" parent="." instance=ExtResource("11_1s25f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.951621, 0.74135, -1.60954)
