@@ -1,0 +1,186 @@
+[gd_scene load_steps=14 format=3 uid="uid://baf6pnwd1txgu"]
+
+[ext_resource type="Script" path="res://Units/Unit/Squished/Squished.cs" id="1_8txru"]
+[ext_resource type="PackedScene" uid="uid://ciycyo1u2fn5q" path="res://Items/Resources/Glass/Glass.tscn" id="2_yo4lq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lrcvy"]
+size = Vector3(1, 0.505939, 1)
+
+[sub_resource type="Animation" id="Animation_n3xej"]
+resource_name = "Crawl"
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightArm")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.581322, 0.0306575, -0.329512, 0.5, 1, 0.546044, 0.0515284, -0.448836, 1, 1, 0.581322, 0.0306575, -0.329512)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightArm")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.490894, 0.361071, 0.661494, 0.437123, 0.5, 1, -0.304703, 0.527737, 0.781319, 0.134875, 1, 1, -0.490894, 0.361071, 0.661494, 0.437123)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftArm")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.513844, 0.00129896, -0.516897, 0.5, 1, -0.565294, 0.0174323, -0.352562, 1, 1, -0.513844, 0.00129896, -0.516897)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftArm")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.306695, 0.605192, 0.717624, -0.15715, 0.5, 1, 0.488338, 0.503332, 0.561499, -0.439206, 1, 1, 0.306695, 0.605192, 0.717624, -0.15715)
+tracks/4/type = "position_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LeftLeg")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.488115, 0.0994139, 0.601561, 0.5, 1, -0.557164, 0.0620432, 0.375987, 1, 1, -0.488115, 0.0994139, 0.601561)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LeftLeg")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 0.651479, -0.273073, 0.174317, 0.686018, 0.5, 1, 0.681982, -0.184101, 0.0816323, 0.703095, 1, 1, 0.651479, -0.273073, 0.174317, 0.686018)
+tracks/6/type = "position_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RightLeg")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.38631, 0.0771267, 0.657748, 0.5, 1, 0.236627, 0.0775341, 0.720886, 1, 1, 0.38631, 0.0771267, 0.657748)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RightLeg")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.637352, 0.103706, -0.0708576, 0.760267, 0.5, 1, 0.645305, 0.0235419, 0.0243554, 0.763174, 1, 1, 0.637352, 0.103706, -0.0708575, 0.760268)
+tracks/8/type = "position_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Head")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, 0.12154, 0.098785, -0.575553, 0.5, 1, -0.0270055, 0.098785, -0.575553, 1, 1, 0.12154, 0.098785, -0.575553)
+tracks/9/type = "position_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Block")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, 0, 0.355856, 0, 0.5, 1, 0.033556, 0.352627, 0, 1, 1, 0, 0.355856, 0)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Block")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 0, 0, 0.0330854, 0.999453, 0.5, 1, 0, 0, -0.0141541, 0.9999, 1, 1, 0, 0, 0.0330854, 0.999453)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eg8oc"]
+_data = {
+"Crawl": SubResource("Animation_n3xej")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_7pdap"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_m36sf"]
+offsets = PackedFloat32Array(0.613821, 0.642276)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ga7ki"]
+noise_type = 0
+frequency = 0.0223
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mct4b"]
+color_ramp = SubResource("Gradient_m36sf")
+noise = SubResource("FastNoiseLite_ga7ki")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1kh2"]
+albedo_color = Color(0.25098, 0.25098, 0.25098, 1)
+albedo_texture = SubResource("NoiseTexture2D_mct4b")
+
+[sub_resource type="SphereMesh" id="SphereMesh_6jisw"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hfnpy"]
+radius = 0.19
+height = 0.55
+
+[sub_resource type="SphereMesh" id="SphereMesh_merhp"]
+radius = 0.2
+height = 0.8
+
+[node name="Squished" type="RigidBody3D" node_paths=PackedStringArray("bank") groups=["Unit"]]
+script = ExtResource("1_8txru")
+speed = 0.05
+bank = NodePath("Bank")
+speed = 0.05
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.268973, 0)
+shape = SubResource("BoxShape3D_lrcvy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Meshes")
+autoplay = "Crawl"
+speed_scale = 2.0
+method_call_mode = 1
+libraries = {
+"": SubResource("AnimationLibrary_eg8oc")
+}
+
+[node name="Meshes" type="Node3D" parent="."]
+
+[node name="Block" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(0.999999, -0.00143084, 0, 0.00143084, 0.999999, 0, 0, 0, 1, 0.0229947, 0.353643, 0)
+mesh = SubResource("BoxMesh_7pdap")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_u1kh2")
+
+[node name="Head" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019747, 0.098785, -0.575553)
+mesh = SubResource("SphereMesh_6jisw")
+
+[node name="Torso" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 0.00996569, 0.99995, 0, -0.99995, 0.00996569, 0, -0.000719845, -0.173778)
+mesh = SubResource("CapsuleMesh_hfnpy")
+
+[node name="LeftArm" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(-0.307839, 0.940469, 0.144062, 0.024725, -0.143456, 0.989348, 0.951117, 0.308121, 0.0209082, -0.553212, 0.0136439, -0.391151)
+mesh = SubResource("CapsuleMesh_hfnpy")
+
+[node name="RightArm" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(-0.660731, -0.672327, -0.333783, -0.0303942, -0.420346, 0.906855, -0.750008, 0.609332, 0.2573, 0.554328, 0.0466275, -0.420816)
+mesh = SubResource("CapsuleMesh_hfnpy")
+
+[node name="LeftLeg" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(0.885002, -0.441593, -0.147538, -0.131107, 0.0676945, -0.989054, 0.446747, 0.894658, 0.00201381, -0.535432, 0.0738051, 0.446983)
+mesh = SubResource("SphereMesh_merhp")
+
+[node name="RightLeg" type="MeshInstance3D" parent="Meshes"]
+transform = Transform3D(0.995159, 0.0715483, 0.0673666, 0.0543208, 0.170769, -0.983813, -0.0818942, 0.98271, 0.166056, 0.283738, 0.0774059, 0.701014)
+mesh = SubResource("SphereMesh_merhp")
+
+[node name="Bank" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.614606, 0)
+
+[node name="Glass" parent="Bank" instance=ExtResource("2_yo4lq")]
+transform = Transform3D(0.934424, -0.333632, 0.12467, 0.0201799, 0.399066, 0.9167, -0.355592, -0.85407, 0.37963, 0.164389, 0.0378288, 0.276007)
+
+[node name="Glass2" parent="Bank" instance=ExtResource("2_yo4lq")]
+transform = Transform3D(0.600012, -0.743274, -0.295855, 0.102823, -0.295103, 0.949917, -0.793356, -0.600382, -0.100639, -0.264814, 0.0295449, -0.136995)
+
+[node name="Glass3" parent="Bank" instance=ExtResource("2_yo4lq")]
+transform = Transform3D(-0.306859, 0.682205, 0.663653, -0.951177, -0.244133, -0.188846, 0.0331882, -0.689199, 0.723811, 0.302214, 0.0318858, -0.251525)

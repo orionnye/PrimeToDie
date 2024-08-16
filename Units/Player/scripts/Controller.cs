@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Controller : RigidBody3D
+public partial class OldController : RigidBody3D
 {
 	[Export] public PlayerCam cam;
 	Vector3 startRot;

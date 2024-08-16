@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://ciycyo1u2fn5q"]
+
+[ext_resource type="Script" path="res://Items/Resources/Glass/Rotate.cs" id="1_14d5k"]
+[ext_resource type="Script" path="res://Items/Resources/Glass/Glass.cs" id="1_043b6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tewj5"]
+size = Vector3(0.1, 0.2, 0.1)
+
+[sub_resource type="Gradient" id="Gradient_dyvfg"]
+offsets = PackedFloat32Array(0.701681, 0.714286)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dv05b"]
+noise_type = 0
+frequency = 0.0024
+fractal_type = 2
+fractal_octaves = 6
+fractal_gain = -0.93
+fractal_weighted_strength = 0.14
+domain_warp_enabled = true
+domain_warp_type = 2
+domain_warp_frequency = -0.11
+domain_warp_fractal_type = 0
+domain_warp_fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nyg00"]
+color_ramp = SubResource("Gradient_dyvfg")
+noise = SubResource("FastNoiseLite_dv05b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkhr3"]
+albedo_color = Color(1, 1, 0, 0.376471)
+emission_enabled = true
+emission = Color(1, 0.482353, 0, 1)
+emission_energy_multiplier = 5.0
+emission_texture = SubResource("NoiseTexture2D_nyg00")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a81k4"]
+size = Vector3(0.1, 0.2, 0.1)
+
+[sub_resource type="Gradient" id="Gradient_6esml"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.861413, 0.929348)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0uloh"]
+noise_type = 2
+frequency = 0.0121
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_32k14"]
+in_3d_space = true
+seamless = true
+color_ramp = SubResource("Gradient_6esml")
+noise = SubResource("FastNoiseLite_0uloh")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5k0om"]
+radius = 0.196482
+
+[node name="Glass" type="RigidBody3D" groups=["Glass"]]
+mass = 0.12
+max_contacts_reported = 2
+contact_monitor = true
+freeze = true
+script = ExtResource("1_043b6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_tewj5")
+surface_material_override/0 = SubResource("StandardMaterial3D_vkhr3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_a81k4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.2
+light_projector = SubResource("NoiseTexture2D_32k14")
+shadow_enabled = true
+omni_range = 1.0
+omni_attenuation = 5.0
+script = ExtResource("1_14d5k")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_5k0om")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

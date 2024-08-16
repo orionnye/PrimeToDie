@@ -4,6 +4,8 @@ using System;
 public partial class Flashlight : Item
 {
 	[Export] public float energy = 5;
+	[Export] public Vector3 heldPosition;
+	[Export] public Vector3 heldRotation;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -11,14 +13,11 @@ public partial class Flashlight : Item
 		base._Ready();
 		Deactivate();
 
-		// Functional
-		heldPosition = new Vector3(0.7f, 0.3f, -1);
-		heldRotation = Vector3.Zero;
-
 		// UI
 		activeMaterial = new StandardMaterial3D{ AlbedoColor = new Color(1f, 0f, 0f) };
 		inactiveMaterial = new StandardMaterial3D{ AlbedoColor = new Color(1f, 1f, 1f) };
 	}
+
 
 	// Base Activate function
 	public override void Activate() {

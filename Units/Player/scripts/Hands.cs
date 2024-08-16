@@ -10,7 +10,7 @@ public partial class Hands : Node3D
 		// starting values
 
 		// reference values
-		cam = GetParent<Controller>().cam;
+		cam = GetParent<OldController>().cam;
 
 		// starting mutations
 		foreach (var item in GetChildren()) {
@@ -75,6 +75,7 @@ public partial class Hands : Node3D
 			Use((Item)GetChild(0));
 		}
 		if (Input.IsActionJustReleased("Shift")) {
+			GD.Print("trying to drop");
 			if (isHolding()) {
 				Drop();
 			} else {

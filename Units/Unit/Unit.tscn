@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4qj88wrp54s0"]
+[gd_scene load_steps=7 format=3 uid="uid://c4qj88wrp54s0"]
 
 [ext_resource type="Script" path="res://Units/Unit/Unit.cs" id="1_ci6me"]
+[ext_resource type="PackedScene" uid="uid://ciycyo1u2fn5q" path="res://Items/Resources/Glass/Glass.tscn" id="2_o8p4b"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_el2sd"]
 
@@ -12,15 +13,16 @@ size = Vector3(0.3, 0.3, 0.3)
 [sub_resource type="SphereShape3D" id="SphereShape3D_7os2j"]
 radius = 1.11866
 
-[node name="Unit" type="RigidBody3D" node_paths=PackedStringArray("hands")]
+[node name="Unit" type="RigidBody3D" node_paths=PackedStringArray("hands", "bank") groups=["Unit"]]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 angular_velocity = Vector3(0, 1.5708, 0)
 angular_damp = 0.79
 script = ExtResource("1_ci6me")
+hp = 2
+mp = 2
 hands = NodePath("Hands")
-
-[node name="Timer" type="Timer" parent="."]
+bank = NodePath("Bank")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_el2sd")
@@ -40,5 +42,10 @@ priority = 1
 process_mode = 1
 shape = SubResource("SphereShape3D_7os2j")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Bank" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.322406, 0.534794)
+
+[node name="Glass" parent="Bank" instance=ExtResource("2_o8p4b")]
+transform = Transform3D(1, 0, 0, 0, 0.862478, 0.506094, 0, -0.506094, 0.862478, -0.214484, 0.0128572, -0.0645064)
+
 [connection signal="body_entered" from="HandCollider" to="." method="_on_hand_collider_body_entered"]

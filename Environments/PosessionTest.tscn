@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://n763ykxexooe"]
+
+[ext_resource type="PackedScene" uid="uid://fc2ldelm1f3q" path="res://Environments/Terrain/Primaries/Plane/Plane.tscn" id="1_pkwjt"]
+[ext_resource type="PackedScene" uid="uid://xib7at7v04dv" path="res://Environments/Terrain/Primaries/Cube/Cube.tscn" id="2_8petn"]
+[ext_resource type="PackedScene" uid="uid://ciycyo1u2fn5q" path="res://Items/Resources/Glass/Glass.tscn" id="3_srjwp"]
+[ext_resource type="PackedScene" uid="uid://bvsgq2l3s78ja" path="res://UI/Cameras/TopDownCam.tscn" id="4_4uamd"]
+[ext_resource type="PackedScene" uid="uid://c4qj88wrp54s0" path="res://Units/Unit/Unit.tscn" id="5_6wtny"]
+
+[node name="PosessionTest" type="Node3D"]
+
+[node name="Plane" parent="." instance=ExtResource("1_pkwjt")]
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="Cube" parent="Walls" instance=ExtResource("2_8petn")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 19.4367, -5.57738, 0.00335598)
+
+[node name="Cube2" parent="Walls" instance=ExtResource("2_8petn")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -20.0356, -5.57738, 0.00335598)
+
+[node name="Cube3" parent="Walls" instance=ExtResource("2_8petn")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -0.368914, -5.57738, 19.5701)
+
+[node name="Cube4" parent="Walls" instance=ExtResource("2_8petn")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -0.150409, -5.57738, -19.409)
+
+[node name="Glass" parent="." instance=ExtResource("3_srjwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227193, 0)
+mass = 1.0
+can_sleep = false
+freeze = false
+speed = 0.1
+isUser = true
+
+[node name="TopDownCam" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_4uamd")]
+target = NodePath("../Glass")
+
+[node name="Actors" type="Node3D" parent="."]
+
+[node name="Unit" parent="Actors" instance=ExtResource("5_6wtny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00288, 4.76837e-07, -1.50905)

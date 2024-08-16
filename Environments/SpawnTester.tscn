@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://duy0wi2r37qvy"]
+[gd_scene load_steps=11 format=3 uid="uid://duy0wi2r37qvy"]
 
 [ext_resource type="PackedScene" uid="uid://fc2ldelm1f3q" path="res://Environments/Terrain/Primaries/Plane/Plane.tscn" id="1_3gte8"]
 [ext_resource type="PackedScene" uid="uid://xib7at7v04dv" path="res://Environments/Terrain/Primaries/Cube/Cube.tscn" id="2_dd371"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dqof6or4kfc0e" path="res://Items/Utility/Flashlight/Flashlight.tscn" id="6_yxvma"]
 [ext_resource type="PackedScene" uid="uid://bvsgq2l3s78ja" path="res://UI/Cameras/TopDownCam.tscn" id="7_hym65"]
 [ext_resource type="PackedScene" uid="uid://c4qj88wrp54s0" path="res://Units/Unit/Unit.tscn" id="7_peg4w"]
+[ext_resource type="PackedScene" uid="uid://c3hhqc8ymrykp" path="res://Stations/Spawner/Spawner.tscn" id="7_vwoo4"]
+[ext_resource type="PackedScene" uid="uid://baf6pnwd1txgu" path="res://Units/Unit/Squished/Squished.tscn" id="8_acsjr"]
 [ext_resource type="PackedScene" uid="uid://0kkavmvglxqp" path="res://Units/Unit/User/User.tscn" id="8_gnwem"]
 
 [node name="SpawnTester" type="Node3D"]
@@ -192,7 +194,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 4, -3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -7)
 
 [node name="Flashlight" parent="Items" instance=ExtResource("6_yxvma")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
 
 [node name="Flashlight2" parent="Items" instance=ExtResource("6_yxvma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 12)
@@ -204,6 +206,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 3)
 mass = 0.01
 target = NodePath("../../User")
 speed = 0.01
+
+[node name="Spawner" parent="Actors" node_paths=PackedStringArray("target") instance=ExtResource("7_vwoo4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -1, 7)
+maxTimer = 9.0
+target = NodePath("../../User")
+
+[node name="Squished" parent="Actors" instance=ExtResource("8_acsjr")]
 
 [node name="TopDownCam" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_hym65")]
 target = NodePath("../User")

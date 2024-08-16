@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxbx3x7718iyg"]
+
+[ext_resource type="PackedScene" uid="uid://fc2ldelm1f3q" path="res://Environments/Terrain/Primaries/Plane/Plane.tscn" id="1_jufop"]
+[ext_resource type="PackedScene" uid="uid://0kkavmvglxqp" path="res://Units/Unit/User/User.tscn" id="2_f05we"]
+[ext_resource type="PackedScene" uid="uid://bvsgq2l3s78ja" path="res://UI/Cameras/TopDownCam.tscn" id="3_omi0s"]
+[ext_resource type="PackedScene" uid="uid://xib7at7v04dv" path="res://Environments/Terrain/Primaries/Cube/Cube.tscn" id="4_mfjtw"]
+[ext_resource type="PackedScene" uid="uid://c4qj88wrp54s0" path="res://Units/Unit/Unit.tscn" id="5_y0ncm"]
+[ext_resource type="PackedScene" uid="uid://bphmah7pyavet" path="res://Items/Guns/Rifle/Rifle.tscn" id="6_enwdj"]
+
+[node name="CollectionTest" type="Node3D"]
+
+[node name="Floors" type="Node3D" parent="."]
+
+[node name="CenterPlane" parent="Floors" instance=ExtResource("1_jufop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="-XPlane" parent="Floors" instance=ExtResource("1_jufop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -1, 0)
+
+[node name="+Z-XPlane" parent="Floors" instance=ExtResource("1_jufop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -1, 20)
+
+[node name="+ZPlane" parent="Floors" instance=ExtResource("1_jufop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 20)
+
+[node name="+Z+XPlane" parent="Floors" instance=ExtResource("1_jufop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -1, 20)
+
+[node name="+XPlane" parent="Floors" instance=ExtResource("1_jufop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -1, 0)
+
+[node name="-Z+XPlane" parent="Floors" instance=ExtResource("1_jufop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -1, -20)
+
+[node name="-ZPlane" parent="Floors" instance=ExtResource("1_jufop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -20)
+
+[node name="-Z-XPlane" parent="Floors" instance=ExtResource("1_jufop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -1, -20)
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="Cube" parent="Walls" instance=ExtResource("4_mfjtw")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -37.0871, -1, 20.0679)
+
+[node name="Cube11" parent="Walls" instance=ExtResource("4_mfjtw")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -37.0871, -1, 0.0679016)
+
+[node name="Cube12" parent="Walls" instance=ExtResource("4_mfjtw")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -37.0871, -1, -19.9321)
+
+[node name="Cube2" parent="Walls" instance=ExtResource("4_mfjtw")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -17.5659, -1, 39.5481)
+
+[node name="Cube3" parent="Walls" instance=ExtResource("4_mfjtw")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 2.43413, -1, 39.5481)
+
+[node name="Cube4" parent="Walls" instance=ExtResource("4_mfjtw")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 22.4341, -1, 39.5481)
+
+[node name="Cube8" parent="Walls" instance=ExtResource("4_mfjtw")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -17.5659, -1, -37.6821)
+
+[node name="Cube9" parent="Walls" instance=ExtResource("4_mfjtw")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 2.43413, -1, -37.6821)
+
+[node name="Cube10" parent="Walls" instance=ExtResource("4_mfjtw")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 22.4341, -1, -37.6821)
+
+[node name="Cube5" parent="Walls" instance=ExtResource("4_mfjtw")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 39.0345, -1, 20.9583)
+
+[node name="Cube6" parent="Walls" instance=ExtResource("4_mfjtw")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 39.0345, -1, 0.95833)
+
+[node name="Cube7" parent="Walls" instance=ExtResource("4_mfjtw")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 39.0345, -1, -19.0417)
+
+[node name="Actors" type="Node3D" parent="."]
+
+[node name="Unit" parent="Actors" instance=ExtResource("5_y0ncm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2)
+
+[node name="User" parent="Actors" instance=ExtResource("2_f05we")]
+
+[node name="TopDownCam" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_omi0s")]
+target = NodePath("../Actors/User")
+
+[node name="Rifle" parent="." instance=ExtResource("6_enwdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.92843, 0.752002, 1.36102)

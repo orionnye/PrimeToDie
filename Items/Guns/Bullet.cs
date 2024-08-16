@@ -27,7 +27,7 @@ public partial class Bullet : RigidBody3D
 	{
 		// On hit function
 		if (body.HasMethod("die")) {
-			BlockEnemy enemy = (BlockEnemy)body;
+			Unit enemy = (Unit)body;
 			enemy.takeDamage(this);
 			// enemy.die();
 			this.QueueFree();

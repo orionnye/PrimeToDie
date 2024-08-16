@@ -1,19 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://0kkavmvglxqp"]
+[gd_scene load_steps=5 format=3 uid="uid://0kkavmvglxqp"]
 
 [ext_resource type="Script" path="res://Units/Unit/User/User.cs" id="1_33oe0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0fmsf"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_6cbn5"]
+size = Vector3(0.3, 0.3, 0.3)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xgirj"]
 
-[node name="User" type="RigidBody3D"]
+[node name="User" type="RigidBody3D" node_paths=PackedStringArray("hands", "bank") groups=["Unit"]]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 script = ExtResource("1_33oe0")
+hands = NodePath("Hands")
+bank = NodePath("Bank")
+
+[node name="Bank" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.608972, 0.579548)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_0fmsf")
+
+[node name="Hands" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444415, 1.19209e-07, 0.433642)
+mesh = SubResource("BoxMesh_6cbn5")
 
 [node name="Meshes" type="Node3D" parent="."]
 

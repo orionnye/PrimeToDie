@@ -6,6 +6,8 @@ public partial class Follow : Node3D
 	[Export] public Node3D target;
 	[Export] private Vector3 range = new Vector3(0.5f, 0.5f, 0.5f);
 
+	private Vector3 mousePos;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
 	}
@@ -14,6 +16,10 @@ public partial class Follow : Node3D
 	public override void _Process(double delta) {
 		if (target != null ) {
 			GlobalPosition = GlobalPosition.Lerp(target.GlobalPosition, 0.01f);
+			if (target is Unit) {
+				Unit unit = (Unit)target;
+				unit.focus = mousePos;
+			}
 		}
 	}
 }

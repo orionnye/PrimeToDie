@@ -8,7 +8,6 @@ public partial class BlockEnemy : RigidBody3D
 	[Export] public float hp = 10;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
-		
 	}
 
 	public void follow() {
@@ -32,7 +31,6 @@ public partial class BlockEnemy : RigidBody3D
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {
-		// follow();
 	}
 	public override void _PhysicsProcess(double delta)
 	{

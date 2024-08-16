@@ -13,6 +13,7 @@ size = Vector3(0.25, 0.395529, 2.56084)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0715708, 0.752002, 1.36102)
 script = ExtResource("1_xnfr1")
 bulletSpeed = 10.0
+heldPosition = Vector3(0.2, -0.25, 0)
 
 [node name="RifleMesh" type="MultiMeshInstance3D" parent="."]
 transform = Transform3D(0.63, 0, 0, 0, 0.63, 0, 0, 0, 0.63, 0, -0.21, 0)

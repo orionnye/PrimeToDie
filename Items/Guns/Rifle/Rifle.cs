@@ -11,7 +11,7 @@ public partial class Rifle : Item
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready() {
-		heldPosition = new Vector3(0.7f, 0.5f, 0);
+		// heldPosition = new Vector3(0.7f, 0.5f, 0);
 		barrelExit = GetNode<Node3D>("BarrelExit").Position;
 	}
 
